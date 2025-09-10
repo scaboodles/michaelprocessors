@@ -3,11 +3,11 @@ unsigned char read_matrix(){
     return PINB;
 }
 
-char keypad[4][3] = {
-    {'1', '2', '3'},
-    {'4', '5', '6'}, 
-    {'7', '8', '9'},
-    {' ', '0', ' '}
+int keypad[4][3] = {
+    {1, 2, 3},
+    {4, 5, 6}, 
+    {7, 8, 9},
+    {-1, 0, -1}
 };
 
 unsigned char seven_seg[10] = {
@@ -47,13 +47,17 @@ int main(){
     unsigned char matrix;
     int row;
     DDRB = 0b11110000;
+    DDRA = 0b11111111;
     while(1){
         // col 0
         PORTB = 0b10111111; 
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
-            PORTA = seven_seg[keypad[row-1][0]];
+            int key = keypad[row-1][0];
+            if(key >= 0 && key <= 9) {
+                PORTA = seven_seg[key];
+            }
             continue;
         }
 
@@ -62,7 +66,10 @@ int main(){
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
-            PORTA = seven_seg[keypad[row-1][1]];
+            int key = keypad[row-1][1];
+            if(key >= 0 && key <= 9) {
+                PORTA = seven_seg[key];
+            }
             continue;
         }
         
@@ -71,7 +78,10 @@ int main(){
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
-            PORTA = seven_seg[keypad[row-1][2]];
+            int key = keypad[row-1][2];
+            if(key >= 0 && key <= 9) {
+                PORTA = seven_seg[key];
+            }
             continue;
         }
     }
