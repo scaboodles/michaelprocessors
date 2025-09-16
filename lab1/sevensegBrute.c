@@ -29,6 +29,9 @@ void read_keypad(){
     }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
         PORTB = seven_seg[2];
         return;
+    }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
+        PORTB = 0b00000000;
+        return;
     }
 
     PORTA = 0b10111111; 
