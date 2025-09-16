@@ -18,7 +18,7 @@ unsigned char seven_seg[10] = {
 void read_keypad(){
     // read column 2
     PORTA = 0b11011111; 
-    _delay_ms(5);
+    asm volatile("nop");
     unsigned char x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[8];
@@ -29,7 +29,8 @@ void read_keypad(){
     }
 
     PORTA = 0b10111111; 
-    _delay_ms(5);
+    asm volatile("nop");
+    unsigned char x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
@@ -39,7 +40,8 @@ void read_keypad(){
     }
 
     PORTA = 0b11011111; 
-    _delay_ms(5);
+    asm volatile("nop");
+    unsigned char x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
@@ -62,7 +64,7 @@ int main(){
 
     while (1){
         read_keypad();
-        _delay_ms(5);
+        asm volatile("nop");
     }
 }
 
