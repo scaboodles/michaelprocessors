@@ -60,8 +60,8 @@ int main(){
     DDRA = 0b11111111;
     while(1){
         // col 0
-        PORTB |= 0b10111111;
-        _delay_ms(1);
+        PORTB = 0b10111111;
+        _delay_ms(5);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
@@ -73,8 +73,8 @@ int main(){
         }
 
         // col 1
-        PORTB |= 0b11011111;
-        _delay_ms(1);
+        PORTB = 0b11011111;
+        _delay_ms(5);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
@@ -86,8 +86,8 @@ int main(){
         }
         
         // col 2
-        PORTB |= 0b11101111;
-        _delay_ms(1);
+        PORTB = 0b11101111;
+        _delay_ms(5);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
@@ -97,6 +97,8 @@ int main(){
             }
             continue;
         }
+
+        _delay_ms(5);
     }
 }
 

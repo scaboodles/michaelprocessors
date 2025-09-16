@@ -31,7 +31,9 @@ unsigned char seven_seg[10] = {
 int main(){
     unsigned char x;
     unsigned char key; 
+    DDRA = 0b00000000;
     DDRB = 0b11110000;
+
     PORTB = 0b11011111; 
     asm volatile("nop");
     while (1)
