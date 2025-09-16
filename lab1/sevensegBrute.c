@@ -38,6 +38,16 @@ void read_keypad(){
         PORTB = seven_seg[7];
     }
 
+    PORTA = 0b11011111; 
+    _delay_ms(5);
+    if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
+        PORTB = seven_seg[1];
+    }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
+        PORTB = seven_seg[4];
+    }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
+        PORTB = seven_seg[7];
+    }
+
 }
 
 //void display_7led(unsigned char a){
