@@ -1,5 +1,8 @@
+#include <avr/io.h>
+#include <util/delay.h>
+
 unsigned char read_matrix(){
-    asm volatile("nop"); 
+    _delay_ms(1);
     return PINB;
 }
 
@@ -57,7 +60,8 @@ int main(){
     DDRA = 0b11111111;
     while(1){
         // col 0
-        PORTB = 0b10111111; 
+        PORTB = 0b10111111;
+        _delay_ms(1);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
@@ -70,6 +74,7 @@ int main(){
 
         // col 1
         PORTB = 0b11011111;
+        _delay_ms(1);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
@@ -82,6 +87,7 @@ int main(){
         
         // col 2
         PORTB = 0b11101111;
+        _delay_ms(1);
         matrix = read_matrix();
         row = get_row(matrix);
         if(row > 0){
