@@ -37,52 +37,8 @@ void read_keypad(){
         return;
     }
 
-    PORTA = 0b10111111; 
-    _delay_ms(5);
-    x = PINA; // read from port A
-    if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
-        PORTB = seven_seg[1];
-        return;
-    }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
-        PORTB = seven_seg[4];
-        return;
-    }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
-        PORTB = seven_seg[7];
-        return;
-    }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
-        PORTB = 0b00000000;
-        return;
-    }else if((x & 0b00000000) == 0){ // check bit 2 (row 1)
-        PORTB = 0b00000000;
-        return;
-    }
-
-    PORTA = 0b11011111; 
-    _delay_ms(5);
-    x = PINA; // read from port A
-    if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
-        PORTB = seven_seg[1];
-        return;
-    }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
-        PORTB = seven_seg[4];
-        return;
-    }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
-        PORTB = seven_seg[7];
-        return;
-    }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
-        PORTB = 0b00000000;
-        return;
-    }else if((x & 0b00000000) == 0){ // check bit 2 (row 1)
-        PORTB = 0b00000000;
-        return;
-    }
-
     PORTB = 0b11111111;
 }
-
-//void display_7led(unsigned char a){
-
-//}
 
 int main(){
     DDRB = 0b11111111;
