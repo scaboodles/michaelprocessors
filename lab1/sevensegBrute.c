@@ -30,7 +30,7 @@ void read_keypad(){
 
     PORTA = 0b10111111; 
     asm volatile("nop");
-    unsigned char x = PINA; // read from port A
+    x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
@@ -41,7 +41,7 @@ void read_keypad(){
 
     PORTA = 0b11011111; 
     asm volatile("nop");
-    unsigned char x = PINA; // read from port A
+    x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
