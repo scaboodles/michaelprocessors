@@ -58,6 +58,7 @@ int main(){
     int row;
     DDRB = 0b11110000;
     DDRA = 0b11111111;
+    PORTB |= 0b00001111; // Enable pull-ups on row inputs
     while(1){
         // col 0
         PORTB = 0b10111111;
