@@ -22,10 +22,13 @@ void read_keypad(){
     unsigned char x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[8];
+        return;
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
         PORTB = seven_seg[5];
+        return;
     }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
         PORTB = seven_seg[2];
+        return;
     }
 
     PORTA = 0b10111111; 
@@ -33,10 +36,13 @@ void read_keypad(){
     x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
+        return;
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
         PORTB = seven_seg[4];
+        return;
     }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
         PORTB = seven_seg[7];
+        return;
     }
 
     PORTA = 0b11011111; 
@@ -44,12 +50,16 @@ void read_keypad(){
     x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
         PORTB = seven_seg[1];
+        return;
     }else if((x & 0b00000100) == 0){ // check bit 2 (row 2)
         PORTB = seven_seg[4];
+        return;
     }else if((x & 0b00001000) == 0){ // check bit 2 (row 1)
         PORTB = seven_seg[7];
+        return;
     }
 
+    PORTB = 0b00000000;
 }
 
 //void display_7led(unsigned char a){
