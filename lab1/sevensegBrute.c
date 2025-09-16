@@ -32,6 +32,9 @@ void read_keypad(){
     }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
         PORTB = 0b00000000;
         return;
+    }else if((x & 0b00000000) == 0){ // check bit 2 (row 1)
+        PORTB = 0b00000000;
+        return;
     }
 
     PORTA = 0b10111111; 
@@ -49,6 +52,9 @@ void read_keypad(){
     }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
         PORTB = 0b00000000;
         return;
+    }else if((x & 0b00000000) == 0){ // check bit 2 (row 1)
+        PORTB = 0b00000000;
+        return;
     }
 
     PORTA = 0b11011111; 
@@ -64,6 +70,9 @@ void read_keypad(){
         PORTB = seven_seg[7];
         return;
     }else if((x & 0b00000001) == 0){ // check bit 2 (row 1)
+        PORTB = 0b00000000;
+        return;
+    }else if((x & 0b00000000) == 0){ // check bit 2 (row 1)
         PORTB = 0b00000000;
         return;
     }
