@@ -17,7 +17,7 @@ unsigned char seven_seg[10] = {
 //unsigned char 
 void read_keypad(){
     // read column 2
-    PORTB = 0b11011111; 
+    PORTA = 0b11011111; 
     _delay_ms(5);
     unsigned char x = PINA; // read from port A
     if ((x & 0b00000010) == 0){ // check bit 1 (row 3)
