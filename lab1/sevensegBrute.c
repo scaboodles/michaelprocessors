@@ -59,7 +59,7 @@ void read_keypad(){
         return;
     }
 
-    PORTB = 0b00000000;
+    PORTB = 0b11111111;
 }
 
 //void display_7led(unsigned char a){
