@@ -76,8 +76,7 @@ int main(void) {
 	DDRB = 0x00;
 
 	while (1) {
-		//unsigned char k = read_keypad();
-		//display_7led(k);
-		PORTB = 0b01010101;
+		unsigned char k = read_keypad();
+		display_7led(k);
 	}
 }
